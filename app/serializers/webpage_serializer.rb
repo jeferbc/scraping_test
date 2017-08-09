@@ -1,5 +1,3 @@
 class WebpageSerializer < ActiveModel::Serializer
-  attributes :id, :url
-
-  has_many :contents
+  attributes :id, :url, :contents
 end

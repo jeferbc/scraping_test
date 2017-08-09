@@ -2,7 +2,7 @@ class V1::ContentsController < ApplicationController
   require 'parse_content'
 
   def index
-    @contents = Content.all
+    @contents = Content.all.paginate(page: params[:page], per_page: params[:per_page])
     json_response(@contents)
   end
 

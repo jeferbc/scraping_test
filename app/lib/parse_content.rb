@@ -1,9 +1,13 @@
+# used for search into a webpage headers and links tags
+
 class ParseHtml
+  require 'open-uri'
   attr_reader :url, :content, :doc
 
   def initialize(url)
     @url = url
     @doc = Nokogiri::HTML(open(@url))
+    byebug
     @content = []
   end
 

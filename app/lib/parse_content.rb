@@ -7,7 +7,6 @@ class ParseHtml
   def initialize(url)
     @url = url
     @doc = Nokogiri::HTML(open(@url))
-    byebug
     @content = []
   end
 
@@ -27,7 +26,7 @@ class ParseHtml
 
   def get_text(entries)
     entries.each do |entry|
-      @content << { tag: entry.name, content: entry.text }
+      @content << { tag: entry.name, content: entry.text.strip }
     end
   end
 end

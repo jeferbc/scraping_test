@@ -10,4 +10,6 @@
 
 class Webpage < ApplicationRecord
   has_many :contents
+
+  validates_presence_of :url
 end

@@ -7,12 +7,12 @@ class V1::ContentsController < ApplicationController
   end
 
   def create
+    webpage = Webpage.where(url: webpage_params[:url]).first_or_create!
     contents = parse_document()
-    webpage = Webpage.new(webpage_params)
-    if webpage.save
+    if webpage
       @contents = []
       contents.each do |content|
-        @contents << webpage.contents.create!(content)
+        @contents << webpage.contents.where(content).first_or_create!
       end
       json_response(@contents)
     end

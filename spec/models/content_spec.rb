@@ -13,5 +13,7 @@
 require 'rails_helper'
 
 RSpec.describe Content, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to(:webpage) }
+  it { should validate_presence_of(:tag) }
+  it { should validate_presence_of(:content) }
 end

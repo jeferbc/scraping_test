@@ -14,7 +14,7 @@ class V1::ContentsController < ApplicationController
       contents.each do |content|
         @contents << webpage.contents.where(content).first_or_create!
       end
-      json_response(@contents)
+      json_response(@contents, :created)
     end
   end
 
